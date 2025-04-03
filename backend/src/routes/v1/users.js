@@ -1,13 +1,11 @@
 import express from 'express';
 
+import { signUp } from '../../controllers/userController.js';
+
 const usersRouter = express.Router();
 
 
-usersRouter.use('/', (req, res) => {
-  return res.status(200).json({
-    message: 'Users route'
-  });
-});
+usersRouter.post('/signup',signUp);
 
 
 

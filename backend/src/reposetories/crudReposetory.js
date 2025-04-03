@@ -1,27 +1,27 @@
-import { get, model } from "mongoose";
 
-export default function cudRepository(Schema){
+
+export default function crudRepository(model){
     return{
-        model: model(Schema),
+        
         create: async function (data)  {
-           const newDoc = await this.model.create(data);
+           const newDoc = await model.create(data);
               return newDoc;
 
         },
         getAll: async function ()  {
-            const allDocs = await this.model.find();
+            const allDocs = await model.find();
             return allDocs;
         },
         getById: async function (id)  {
-            const doc = await this.model.findById(id);
+            const doc = await model.findById(id);
             return doc;
         },
         delete: async function (id)  {
-            const response = await this.model.findByIdAndDelete(id);
+            const response = await model.findByIdAndDelete(id);
             return response;
         },
         update:async function (id, data)  {
-            const updatedDoc = await this.model.findByIdAndUpdate(id, data, {
+            const updatedDoc = await model.findByIdAndUpdate(id, data, {
                 new: true,
                 // runValidators: true
             });
