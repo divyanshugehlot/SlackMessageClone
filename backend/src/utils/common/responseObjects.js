@@ -22,7 +22,7 @@ export const customErrorResponse = (error) => {
     };
 }
 
-export const successResponse = (message, data) => {
+export const successResponse = (data, message) => {
     return {
         success: true,
         message,
