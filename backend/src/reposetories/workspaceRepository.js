@@ -1,10 +1,11 @@
 
 import { StatusCodes } from "http-status-codes";
-import Workspace from "../schema/workspace.js";
+
 import User from "../schema/user.js";
+import Workspace from "../schema/workspace.js";
 import ClientError from "../utils/error/clientError.js";
-import crudRepository from "./crudReposetory.js";
 import channelRepository from "./channelRepository.js";
+import crudRepository from "./crudReposetory.js";
 
 const workspaceRepository = {
     ...crudRepository(Workspace),
@@ -31,7 +32,7 @@ const workspaceRepository = {
     return workspace;
     },
     addMemberToWorkspace: async function (workspaceId,memberId,role){
-        const workspace =  await Workspace.findById({workspaceId});
+        const workspace =  await Workspace.findById(workspaceId);
         if(!workspace){
             throw new ClientError({
                 explanation:"Invalid data sent from the client",
@@ -67,7 +68,7 @@ const workspaceRepository = {
         return workspace;
     },
     addChannelToWorkspace: async function (workspaceId,channelName){
-        const workspace =  await Workspace.findById({workspaceId})
+        const workspace =  await Workspace.findById(workspaceId)
         .populate("channels");
         if(!workspace){
             throw new ClientError({

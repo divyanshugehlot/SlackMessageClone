@@ -1,4 +1,4 @@
-import Channel from "../models/Channel.js";
+import Channel from "../schema/channel.js";
 import crudRepository from "./crudReposetory.js";
 
 const channelRepository = {

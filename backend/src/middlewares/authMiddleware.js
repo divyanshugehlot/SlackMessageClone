@@ -1,7 +1,7 @@
 import { StatusCodes } from "http-status-codes";
 import jwt from 'jsonwebtoken';
 
-import { JWT_SECRET } from "../../config/serverConfig.js";
+import { JWT_SECRET } from "../config/serverConfig.js";
 import userRepository from "../reposetories/userReposetory.js";
 import { customErrorResponse, internalErrorResponse } from "../utils/common/responseObjects.js";
 
