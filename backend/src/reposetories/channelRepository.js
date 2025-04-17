@@ -4,6 +4,7 @@ import crudRepository from "./crudReposetory.js";
 const channelRepository = {
     ...crudRepository(Channel),
    
+   
 }
 
 export default channelRepository;
